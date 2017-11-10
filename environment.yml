@@ -1,0 +1,15 @@
+name: iaf
+
+dependencies:
+        - python=2.7
+        - ipython
+        - six
+        - matplotlib
+        - jupyter
+        - PIL
+
+        - pip:
+                - numpy==1.11.0
+                - Theano==0.8.2
+                - tqdm
+                - sacred

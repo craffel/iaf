@@ -9,7 +9,7 @@ dependencies:
         - PIL
 
         - pip:
-                - https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.9.0-cp27-none-linux_x86_64.whl
+                - https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
                 - numpy==1.11.0
                 - Theano==0.8.2
                 - tqdm

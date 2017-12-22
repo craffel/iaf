@@ -17,6 +17,7 @@ flags.DEFINE_string("logdir", "/tmp/vae", "Logging directory.")
 flags.DEFINE_string("hpconfig", "", "Overrides default hyper-parameters.")
 flags.DEFINE_string("mode", "train", "Whether to run 'train' or 'eval' model.")
 flags.DEFINE_integer("num_gpus", 8, "Number of GPUs used.")
+flags.DEFINE_integer("max_iter", 1000000, "Max number of iterations to run.")
 FLAGS = flags.FLAGS
 
 
@@ -285,6 +286,9 @@ def run(hps):
                 break
             if local_step % 100 == 0:
                 saver.save(sess, sv.save_path, global_step=sv.global_step, write_meta_graph=False)
+            if fetched[1] >= FLAGS.max_iter:
+                print("Reached max_iter, stopping.")
+                break
 
             local_step += 1
         sv.stop()
